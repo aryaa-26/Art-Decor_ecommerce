@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+
+    <style> body {
+            background-color: #f1d2b4;}
+                    
+    </style>
+
+</head>
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+
+
+
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="index.html">Art Decor</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="product.html">Products</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="about.html">About Us</a>
+        </li>
+         <li class="nav-item">
+          <a class="nav-link" href="contact.html">Contact</a>
+        </li>
+        </li>
+       
+      </ul>
+      
+    </div>
+  </div>
+</nav>
+
+
+<!-- Products -->
+
+<div class="container mt-4">
+  <h2>Products</h2>
+  <div class="row" id="productContainer"></div>
+</div>
+
+<script>
+
+
+async function fetchProducts() {
+  try {
+    const res = await fetch("https://fakestoreapi.com/products");
+    const data = await res.json();
+
+    const container = document.getElementById("productContainer");
+        
+    data.forEach(product => {
+      container.innerHTML += `
+        <div class="col-md-3 mb-4">
+          <div class="card h-100">
+            <img src="${product.image}" class="card-img-top" style="height:200px; object-fit:contain;">
+            <div class="card-body">
+              <h6>${product.title}</h6>
+              <p>$${product.price}</p>
+            </div>
+          </div>
+        </div>
+      `;
+    });
+
+  } catch (error) {
+    console.log("Error:", error);
+  }
+}
+
+fetchProducts();
+
+
+</script>
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+
+
+<!-- Page Title -->
+<div class="container mt-4">
+    <h1 class="text-center">Our Products</h1>
+</div>
+
+<!-- Product Section -->
+<div class="container mt-4">
+    <div class="row">
+
+        <!-- Product 1 -->
+        <div class="col-md-4">
+            <div class="card">
+                <img style="height:300px; width:300px;" src="img3.jpeg" class="card-img-top" alt="">
+                <div class="card-body">
+                    <h5 class="card-title">couch</h5>
+                    <p>stylish couch</p>
+                    <p><b>₹500</b></p>
+                    <button class="btn btn-primary">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Product 2 -->
+        <div class="col-md-4">
+            <div class="card">
+                <img style="height:300px; width:300px;" src="img2.jpeg" class="card-img-top" alt="">
+                <div class="card-body">
+                    <h5 class="card-title">wall painting</h5>
+                    <p>Stylish wall painting</p>
+                    <p><b>₹300</b></p>
+                    <button class="btn btn-primary">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Product 3 -->
+        <div class="col-md-4">
+            <div class="card">
+                <img style="height:300px; width:300px;"" src="img1.jpeg" class="card-img-top" alt="">
+                <div class="card-body">
+                    <h5 class="card-title">Door Decor</h5>
+                    <p>Decorate your door</p>
+                    <p><b>₹400</b></p>
+                    <button class="btn btn-primary">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- Footer -->
+<footer class="bg-dark text-white text-center p-3 mt-5">
+    <p>© 2026 Art Decor</p>
+</footer>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
+
+</body>
+</html>
